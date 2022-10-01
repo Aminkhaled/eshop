@@ -1,7 +1,7 @@
 <?php
 class Home extends Controller {
-   public function index($a = '',$b = ''){
-
-       return $this->view('eshop/index');
+   public function index(){
+       $data['page_title'] = "Home";
+       return $this->view('eshop/index',$data);
    }
 }

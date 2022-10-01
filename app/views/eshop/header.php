@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title><?php echo $data['page_title'] ?> | E-Shopper</title>
     <link href="<?php echo ASSETS ?>eshop/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo ASSETS ?>eshop/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo ASSETS ?>eshop/css/prettyPhoto.css" rel="stylesheet">
@@ -90,7 +90,7 @@
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="login"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>
                 </div>
