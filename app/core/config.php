@@ -5,7 +5,7 @@ define("WEBSITE_TITLE",'My Shop');
 define('DB_NAME','db_eshop');
 define('DB_USER','root');
 define('DB_PASSWORD','');
-
+define('DB_TYPE','mysql');
 define('DEBUG',true);
 
 if (DEBUG){
