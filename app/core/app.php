@@ -9,7 +9,6 @@ class App{
     public function __construct()
     {
         $parseUrl =  $this->parseUrl();
-        show($parseUrl);
         if (file_exists("../app/controllers/".$parseUrl[0].".php")){
          $this->controller =  strtolower($parseUrl[0]);
          unset($parseUrl[0]);

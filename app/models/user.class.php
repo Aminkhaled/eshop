@@ -101,4 +101,16 @@ class User{
         }
         return $randomString;
     }
+    public function check_login(){
+        if (isset($_SESSION['url_address'])){
+            $arr['url'] = $_SESSION['url_address'];
+            $query = "select *  from users where url_address = :url limit 1";
+            $db = Database::getInstance();
+            $result = $db->read($query,$arr);
+            if (is_array($result)){
+                return $result[0];
+            }
+            return false;
+        }
+    }
 }
