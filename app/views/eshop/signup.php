@@ -5,6 +5,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="signup-form"><!--sign up form-->
+                        <span class="error" style="color: red; font-size: 24px;"><?php check_messages(); ?></span>
                         <h2>New User Signup!</h2>
                         <form method="post">
                             <input name="name" type="text" placeholder="Name"/>

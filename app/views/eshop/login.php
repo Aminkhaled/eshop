@@ -5,11 +5,14 @@
 			<div class="row">
 				<div class="col-sm-12 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
-						<h2>Login to your account</h2>
-						<form action="#">
-							<input type="text" placeholder="Name" />
-							<input type="email" placeholder="Email Address" />
-							<span>
+                        <span class="error" style="color: red; font-size: 24px;"><?php check_messages(); ?></span>
+
+                        <h2>Login to your account</h2>
+						<form method="post">
+							<input name="email" type="email" placeholder="Email Address" />
+                            <input type="password" name="password" placeholder="Password" />
+
+                            <span>
 								<input type="checkbox" class="checkbox"> 
 								Keep me signed in
 							</span>
