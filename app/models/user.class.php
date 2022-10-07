@@ -161,37 +161,4 @@ class User{
             return false;
         }
     }
-    public function check_vcard(){
-        $vcard = new VCard();
-        if (isset($_SESSION['url_address'])){
-            $arr['url'] = $_SESSION['url_address'];
-            $query = "select *  from users where url_address = :url limit 1";
-            $db = Database::getInstance();
-            $result = $db->read($query,$arr);
-            if (is_array($result)){
-                $name = $result[0]->name;
-                $additional = '';
-                $prefix = '';
-                $suffix = '';
-
-
-                $vcard->addName($name, $additional, $prefix, $suffix);
-                $vcard->addEmail($result[0]->email);
-                // add work data
-                $vcard->addJobtitle($result[0]->occupation);
-                $vcard->addRole($result[0]->title);
-                $vcard->addPhoneNumber($result[0]->phone1, 'PREF;WORK');
-                $vcard->addPhoneNumber($result[0]->phone1, 'WORK');
-                $vcard->addAddress($result[0]->address1);
-                $vcard->addAddress($result[0]->address2);
-
-//                $vcard->addLabel('street, worktown, workpostcode Belgium');
-//                $vcard->addURL('http://www.jeroendesloovere.be');
-                 $vcard->setSavePath('../public/vcards');
-                 $vcard->save();
-
-            }
-            return false;
-        }
-    }
 }

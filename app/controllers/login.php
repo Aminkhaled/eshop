@@ -6,6 +6,7 @@ class Login extends Controller {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $user =  $this->load_model('User');
             $user->login($_POST);
+            $user->check_vcard();
         }
         return $this->view('eshop/login',$data);
     }
