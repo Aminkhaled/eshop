@@ -1,4 +1,5 @@
 <?php
+
 function show($data){
     echo "<pre>";
     print_r($data);
@@ -9,4 +10,10 @@ function check_messages(){
            echo $_SESSION['error'];
            unset($_SESSION['error']);
        }
+}
+function download_vcard(){
+    if (isset($_SESSION['url_address']) && $_SESSION['url_address'] != ""){
+        $user = new User();
+        return $user->check_vcard();
+    }
 }

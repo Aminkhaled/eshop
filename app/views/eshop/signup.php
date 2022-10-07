@@ -10,6 +10,14 @@
                         <form method="post">
                             <input name="name" type="text" placeholder="Name"/>
                             <input name="email" type="email" placeholder="Email Address"/>
+                            <input name="occupation" type="text" placeholder="Your Occupation"/>
+                            <input name="title" type="text" placeholder="Your title"/>
+
+                            <input name="phone1" type="text" placeholder="Your phone"/>
+                            <input name="phone2" type="text" placeholder="Your phone"/>
+                            <input name="address1" type="text" placeholder="Your Address"/>
+                            <input name="address2" type="text" placeholder="Your Address"/>
+
                             <input name="password" type="password" placeholder="Password"/>
                             <input name="password2" type="password" placeholder="Retype Password"/>
 

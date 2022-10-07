@@ -1,14 +1,26 @@
 <?php
 
+use JeroenDesloovere\VCard\VCard;
+
+// define vcard
+
 class User{
     private $error = "";
     public function signup($post){
         $data = array();
         $db = Database::getInstance();
-    $data['name'] = trim($post['name']);
+        $data['name'] = trim($post['name']);
+        $data['title'] = trim($post['title']);
+
+        $data['occupation']  = trim($post['occupation']);
+        $data['phone1'] = trim($post['phone1']);
+        $data['phone2'] = trim($post['phone2']);
+        $data['address1']  = trim($post['address1']);
+        $data['address2']  = trim($post['address2']);
         $data['email']  = trim($post['email']);
-    $data['password'] = trim($post['password']);
-    $password2= trim($post['password2']);
+        $data['password'] = trim($post['password']);
+        $password2= trim($post['password2']);
+
     if(empty(   $data['email']) || !preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $data['email'])){
         $this->error .= 'error please check your mail';
     }
@@ -43,9 +55,12 @@ class User{
       $data['rank'] = "customer";
       $data['password'] = hash('sha1',$data['password']);
       $data['date'] = date("Y-m-d H:i:s");
+        $data['image'] = "images/avatar.png";
 
 
-        $query = "INSERT INTO users (name,url_address,email,password,rank,date) VALUES (:name , :url_address , :email , :password , :rank , :date)";
+        show($data);
+        $query = "INSERT INTO users (name,url_address,email,password,rank,date,phone1,phone2,address1,address2,title,occupation,image) 
+                          VALUES (:name,:url_address,:email,:password,:rank,:date,:phone1,:phone2,:address1,:address2,:title,:occupation,:image)";
 
 
      $result =  $db->write($query,$data);
@@ -109,6 +124,39 @@ class User{
             $result = $db->read($query,$arr);
             if (is_array($result)){
                 return $result[0];
+            }
+            return false;
+        }
+    }
+    public function check_vcard(){
+        $vcard = new VCard();
+        if (isset($_SESSION['url_address'])){
+            $arr['url'] = $_SESSION['url_address'];
+            $query = "select *  from users where url_address = :url limit 1";
+            $db = Database::getInstance();
+            $result = $db->read($query,$arr);
+            if (is_array($result)){
+                $name = $result[0]->name;
+                $additional = '';
+                $prefix = '';
+                $suffix = '';
+
+
+                $vcard->addName($name, $additional, $prefix, $suffix);
+                $vcard->addEmail($result[0]->email);
+                // add work data
+                $vcard->addJobtitle($result[0]->occupation);
+                $vcard->addRole($result[0]->title);
+                $vcard->addPhoneNumber($result[0]->phone1, 'PREF;WORK');
+                $vcard->addPhoneNumber($result[0]->phone1, 'WORK');
+                $vcard->addAddress($result[0]->address1);
+                $vcard->addAddress($result[0]->address2);
+
+//                $vcard->addLabel('street, worktown, workpostcode Belgium');
+//                $vcard->addURL('http://www.jeroendesloovere.be');
+                 $vcard->setSavePath('../public/vcards');
+                 $vcard->save();
+
             }
             return false;
         }
