@@ -5,6 +5,9 @@ use JeroenDesloovere\VCard\VCard;
 // define vcard
 
 class User{
+    public function __construct(){
+        $this->check_vcard();
+    }
     private $error = "";
     public function signup($post){
         $data = array();

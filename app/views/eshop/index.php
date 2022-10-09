@@ -51,8 +51,8 @@
                         <div class="col-md-8">
                             <p id="vcard-text" style="background-color: lightgray;color: white;">
                                 <?php
-                                $url_vcard = str_replace(' ','-',$data['user_data']->name);
-                                echo ROOT .$url_vcard.".vcf"  ?>
+                                $url_vcard = str_replace(' ','-',$data['user_data']->url_address);
+                                echo ROOT . "vcards/" .$url_vcard.".vcf"  ?>
                             </p>
                         </div>
 <!--                        col-md - 8-->
