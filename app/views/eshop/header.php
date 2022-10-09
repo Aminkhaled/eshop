@@ -1,9 +1,24 @@
+
 <?php
-if (isset($_SESSION['url_address']) && $_SESSION['url_address'] != "") {
-if (isset($data['user_data'])) {
-    download_vcard();
+
+if (isset($_SESSION['url_address']) && $_SESSION != ""){
+    $file = $_SESSION['url_address'].".vcf";
+
+    if (file_exists($file)) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/force-download');
+        header("Content-Disposition: attachment; filename=\"" . basename($file) . "\";");
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        ob_clean();
+        flush();
+        readfile( ROOT . "vcards/" .  + $file); //showing the path to the server where the file is to be download
+        exit();
+    }
 }
-}
+
  ?>
 <!DOCTYPE html>
 <html lang="en">

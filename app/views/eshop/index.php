@@ -18,7 +18,7 @@
                                    <i class="fa fa-download" style="margin: 0 10px"> Download</i>
                                 </button>
                             </h2>
-                            <p>an   <b> Employee</b></p>
+                            <p><?php echo  $data['user_data']->title ?></b></p>
 
 
                         </div>
@@ -28,7 +28,8 @@
                             <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span><?php echo $data['user_data']->email ?></p></li>
                         </ul>
                         <hr>
-                        <div class="col-sm-5 col-xs-6 tital " >Date Of Joining: 15 Jun 2016</div>
+
+                        <div class="col-sm-5 col-xs-6 tital " ><?php echo  $data['user_data']->date ?></div>
                     </div>
                 </div>
             </div>
@@ -52,7 +53,7 @@
                             <p id="vcard-text" style="background-color: lightgray;color: white;">
                                 <?php
                                 $url_vcard = str_replace(' ','-',$data['user_data']->url_address);
-                                echo ROOT . "vcards/" .$url_vcard.".vcf"  ?>
+                                echo ROOT . "vcards/" .strtolower($url_vcard).".vcf"  ?>
                             </p>
                         </div>
 <!--                        col-md - 8-->
