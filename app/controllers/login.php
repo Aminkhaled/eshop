@@ -7,7 +7,6 @@ class Login extends Controller {
             $user =  $this->load_model('User');
             $user->login($_POST);
         }
-
         return $this->view('eshop/login',$data);
     }
 }
