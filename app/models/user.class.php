@@ -113,4 +113,12 @@ class User{
             return false;
         }
     }
+    public function logout(){
+        if (isset($_SESSION['url_address'])){
+            unset($_SESSION['url_address']);
+
+        }
+        header("Location: login");
+        die();
+    }
 }

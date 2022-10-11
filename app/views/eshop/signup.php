@@ -8,8 +8,8 @@
                         <span class="error" style="color: red; font-size: 24px;"><?php check_messages(); ?></span>
                         <h2>New User Signup!</h2>
                         <form method="post">
-                            <input name="name" type="text" placeholder="Name"/>
-                            <input name="email" type="email" placeholder="Email Address"/>
+                            <input name="name" value="<?= isset($_POST['name']) ? $_POST['name'] : ''; ?>" type="text" placeholder="Name"/>
+                            <input name="email" value="<?= isset($_POST['email']) ? $_POST['email'] : ''; ?>"  type="email" placeholder="Email Address"/>
                             <input name="password" type="password" placeholder="Password"/>
                             <input name="password2" type="password" placeholder="Retype Password"/>
 

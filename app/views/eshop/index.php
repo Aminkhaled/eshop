@@ -756,4 +756,4 @@
 		</div>
 	</section>
 	
-<?php $this->view('eshop/footer') ?>
+<?php $this->view('eshop/footer',$data) ?>
