@@ -15,7 +15,7 @@
 <script src="<?php echo ASSETS ?>admin/js/jquery.js"></script>
 <script src="<?php echo ASSETS ?>admin/js/jquery-1.8.3.min.js"></script>
 <script src="<?php echo ASSETS ?>admin/js/bootstrap.min.js"></script>
-<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script  src="<?php echo ASSETS ?>admin/js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="<?php echo ASSETS ?>admin/js/jquery.scrollTo.min.js"></script>
 <script src="<?php echo ASSETS ?>admin/js/jquery.nicescroll.js" type="text/javascript"></script>
 <script src="<?php echo ASSETS ?>admin/js/jquery.sparkline.js"></script>

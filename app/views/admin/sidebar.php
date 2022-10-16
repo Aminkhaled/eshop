@@ -11,7 +11,7 @@
             <h5 class="centered">Marcel Newman</h5>
 
             <li class="mt">
-                <a class="active" href="index.html">
+                <a class="active" href="<?php echo ROOT ?>">
                     <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -19,14 +19,57 @@
 
             <li class="sub-menu">
                 <a href="javascript:;" >
-                    <i class="fa fa-desktop"></i>
-                    <span>UI Elements</span>
+                    <i class="fa fa-cart"></i>
+                    <span>Products</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="general.html">General</a></li>
-                    <li><a  href="buttons.html">Buttons</a></li>
-                    <li><a  href="panels.html">Panels</a></li>
+                    <li><a  href="admin/product/add">add product</a></li>
+                    <li><a  href="admin/product/edit">edit product</a></li>
+                    <li><a  href="admin/product/delete">delete product</a></li>
                 </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-cart"></i>
+                    <span>Categories</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="admin/category/add">add category</a></li>
+                    <li><a  href="admin/category/edit">edit category</a></li>
+                    <li><a  href="admin/category/delete">delete category</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-reorder"></i>
+                    <span>Orders</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-cart"></i>
+                    <span>settings</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="admin/settings/add">add category</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-user"></i>
+                    <span>users</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="admin/users/customers">customers</a></li>
+                    <li><a  href="admin/users/admins">admins</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-hdd-o"></i>
+                    <span>website backup </span>
+                </a>
             </li>
 
 

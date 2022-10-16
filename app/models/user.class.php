@@ -101,17 +101,44 @@ class User{
         }
         return $randomString;
     }
-    public function check_login(){
+    public function check_login($redirect = false,$allowed = array()){
+
+        $db = Database::getInstance();
+
+
+        if (count($allowed) > 0){
+
+            $arr['url'] = $_SESSION['url_address'];
+            $query = "select rank from users where url_address = :url limit 1;";
+            $result = $db->read($query,$arr);
+
+            if (is_array($result)){
+
+                $result = $result[0];
+                if (in_array($result->rank,$allowed)){
+                   return $result;
+                }
+            }else{
+                header("Location:". ROOT. "login");
+                die();
+            }
+
+        }else{
         if (isset($_SESSION['url_address'])){
+            $arr =  false;
             $arr['url'] = $_SESSION['url_address'];
             $query = "select *  from users where url_address = :url limit 1";
-            $db = Database::getInstance();
             $result = $db->read($query,$arr);
             if (is_array($result)){
                 return $result[0];
+            }else{
+                if ($redirect){
+                    header("Location:". ROOT. "login");
+                    die();
+                }
             }
-            return false;
-        }
+        }}
+
     }
     public function logout(){
         if (isset($_SESSION['url_address'])){

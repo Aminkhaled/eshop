@@ -72,7 +72,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.html#">
+                            <a href="<?php echo ROOT ?>">
                                 <div class="task-info">
                                     <div class="desc">Database Update</div>
                                     <div class="percent">60%</div>
@@ -85,7 +85,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.html#">
+                            <a href="<?php echo ROOT ?>">
                                 <div class="task-info">
                                     <div class="desc">Product Development</div>
                                     <div class="percent">80%</div>
@@ -98,7 +98,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.html#">
+                            <a href="<?php echo ROOT ?>">
                                 <div class="task-info">
                                     <div class="desc">Payments Sent</div>
                                     <div class="percent">70%</div>
@@ -186,7 +186,7 @@
         </div>
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><a class="logout" href="logout">Logout</a></li>
             </ul>
         </div>
     </header>
