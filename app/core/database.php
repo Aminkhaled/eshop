@@ -19,6 +19,9 @@ class Database{
         }
        return self::$instance;
     }
+    public static function newInstance(){
+        return self::$instance = new self();
+    }
     //read
     public function read($query,$data = array()){
          $stm = self::$conn->prepare($query);
