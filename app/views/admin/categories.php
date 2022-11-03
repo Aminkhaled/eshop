@@ -65,7 +65,7 @@ echo $data['category_row'];
                         <input type="text" class="form-control" id="InputCategory" name="category" placeholder="Enter category">
                     </div>
                     <div class="form-group">
-                        <label for="CategoryType">Enter Category Name</label>
+                        <label for="CategoryType"></label>
                         <input type="hidden" class="form-control" id="CategoryType" value="<?php echo "add_category" ?>" name="categoryType" placeholder="Enter category">
                     </div>
 
@@ -97,5 +97,20 @@ echo $data['category_row'];
             event.preventDefault();
         });
     });
+    function delete_row(id){
+        var url = "<?php echo ROOT ?>ajax?id="+id+"&categoryType=delete_category";
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        }).then(response => response.text()).then(function (data) {
+            console.log(data);
+        }).catch(function (error) {
+            console.warn('Something went wrong.', error);
+        });
+    }
+
+
 </script>
 <?php $this->view('admin/footer',$data) ?>

@@ -39,13 +39,14 @@ class Category{
 //              $categories = array_merge($categories, $entry);
 //          }
 
+
           foreach ($cats as$value){
+
               $result .= "<tr>      <td><a >$value->id</a></td>  <td class='hidden-phone'>$value->category</td>
                             <td>Active </td>
                            <td>
-                                <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-                                <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
-                                <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o'></i></button>
+                                <a id='$value->id' href='edit_category?id=$value->id&category=$value->category&categoryType=edit_category'   class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></a>
+                                <a id='$value->id' onclick='delete_row($value->id)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o'></i></a>
                             </td>  </tr>";
           }
           return $result;
@@ -54,7 +55,11 @@ class Category{
       return false;
 
         }
-
+    public function delete($id){
+        $db = Database::newInstance();
+        $query = "delete from categories where id = '$id' limit 1";
+        $db->write($query);
+    }
 
 }
 

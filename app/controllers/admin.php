@@ -11,7 +11,7 @@ class Admin extends Controller{
         return $this->view('admin/index',$data);
     }
     public function categories(){
-        $data['page_title'] = "Admin page";
+        $data['page_title'] = "Category page";
         $user =  $this->load_model('User');
         $category =  $this->load_model('Category');
         $caties = $category->get_all();
@@ -23,5 +23,14 @@ class Admin extends Controller{
             $user_data =  $data['user_data'] ;
         }
         return $this->view('admin/categories',$data);
+    }
+
+    public function edit_category(){
+        $data['page_title'] = "Edit Category page";
+         if ($_GET['categoryType'] == 'edit_category'){
+            $data['id'] = $_GET['id'];
+            $data['category'] = $_GET['category'];
+        }
+        return $this->view('admin/editCategory',$data);
     }
 }
