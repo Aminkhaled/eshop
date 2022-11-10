@@ -7,8 +7,8 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
 
-            <p class="centered"><a href="profile.html"><img src="<?php echo ASSETS ?>admin/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-            <h5 class="centered">Marcel Newman</h5>
+            <p class="centered"><a href="admin"><img src="<?php echo ASSETS ?>admin/img/ui-sam.png" class="img-circle" width="60"></a></p>
+            <h5 class="centered">Amen Khaled</h5>
 
             <li class="mt">
                 <a class="active" href="<?php echo ROOT ?>">

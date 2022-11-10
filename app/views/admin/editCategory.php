@@ -19,14 +19,14 @@ MAIN CONTENT
                 <div class="content-panel">
                         <h4><i class="fa fa-angle-right"></i>Edit categories</h4>
                         <!-- Button trigger modal -->
-                    <form method="post" action="<?php echo ROOT ?>admin" class="form">
+                    <form method="post" action="<?php echo ROOT ?>ajax" class="form">
                         <div class="form-group">
-                            <label for="editCategory">Enter Category Name</label>
-                            <input type="text" value="<?php echo $data['category']; ?>"  class="form-control" id="editCategory" name="editCategory" placeholder="Edit category">
+                            <label for="category">Enter Category Name</label>
+                            <input type="text" value="<?php echo $data['category']; ?>"  class="form-control" id="category" name="category" placeholder="update category">
                         </div>
                         <div class="form-group">
-                            <label for="categoryId">Enter Category Name</label>
-                            <input type="hidden"  value="<?php echo $data['id']; ?>" class="form-control" id="categoryId" name="categoryId" placeholder="category id">
+                            <label for="id">Enter Category Name</label>
+                            <input type="hidden"  value="<?php echo $data['id']; ?>" class="form-control" id="id" name="id" placeholder="category id">
                         </div>
                         <div class="form-group">
                             <label for="CategoryType"></label>
@@ -44,5 +44,22 @@ MAIN CONTENT
     </section>
 </section>
 
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.form').addEventListener('submit', function (event) {
+            var data = this;
+            fetch(data.getAttribute('action'), {
+                method: data.getAttribute('method'),
+                body: new FormData(data)
+            }).then(res=>res.text())
+                .then(function () {
+                    window.location.href = "categories";
+                });
+            event.preventDefault();
+        });
+    });
 
+
+
+</script>
 <?php $this->view('admin/footer',$data) ?>

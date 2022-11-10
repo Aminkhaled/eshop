@@ -11,6 +11,12 @@ class Ajax extends Controller {
             $arr['id'] = $_GET['id'];
             $category->delete($arr['id']);
             header('Location: categories');
+        }else if ($_POST['categoryType'] == 'update_category'){
+            $category_name = $_POST['category'];
+            $id = $_POST['id'];
+           $category->update($category_name,$id);
+            header('Location: categories');
+
         }
 
     }

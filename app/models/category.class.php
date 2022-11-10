@@ -24,6 +24,7 @@ class Category{
         }
     }
 
+
     public function get_all(){
         $db = Database::getInstance();
         $result = $db->read('select * from categories');
@@ -55,10 +56,19 @@ class Category{
       return false;
 
         }
+        public function update($category,$id){
+        $arr['id'] = $id;
+        $arr['category'] = $category;
+            $category_update = "update categories set category = :category  where id = :id " ;
+            $db =Database::newInstance();
+            $result = $db->write($category_update,$arr);
+            return $result;
+        }
     public function delete($id){
         $db = Database::newInstance();
         $query = "delete from categories where id = '$id' limit 1";
-        $db->write($query);
+        $result = $db->write($query);
+        return $result;
     }
 
 }

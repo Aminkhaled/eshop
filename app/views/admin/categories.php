@@ -105,7 +105,7 @@ echo $data['category_row'];
                 'Content-type': 'application/json; charset=UTF-8'
             }
         }).then(response => response.text()).then(function (data) {
-            console.log(data);
+            window.location.href = "categories";
         }).catch(function (error) {
             console.warn('Something went wrong.', error);
         });
